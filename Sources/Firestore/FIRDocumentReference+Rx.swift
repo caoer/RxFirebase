@@ -119,7 +119,7 @@ extension Reactive where Base: DocumentReference {
             self.base.getDocument { snapshot, error in
                 if let error = error {
                     observer.onError(error)
-                } else if let snapshot = snapshot, snapshot.exists {
+                } else if let snapshot = snapshot {
                     observer.onNext(snapshot)
                     observer.onCompleted()
                 } else {
