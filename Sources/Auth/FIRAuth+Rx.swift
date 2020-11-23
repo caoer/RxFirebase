@@ -47,7 +47,7 @@ extension Reactive where Base: Auth {
      */
     public func fetchProviders(forEmail email: String) -> Observable<[String]> {
         return Observable.create { observer in
-            self.base.fetchProviders(forEmail: email) { providers, error in
+            self.base.fetchSignInMethods(forEmail: email) { providers, error in
                 guard let error = error else {
                     observer.onNext(providers ?? [])
                     observer.onCompleted()
@@ -197,7 +197,7 @@ extension Reactive where Base: Auth {
      */
     public func signInAndRetrieveData(with credential: AuthCredential) -> Observable<AuthDataResult> {
         return Observable.create { observer in
-            self.base.signInAndRetrieveData(with: credential) { auth, error in
+            self.base.signIn(with: credential) { auth, error in
                 if let error = error {
                     observer.onError(error)
                 } else if let auth = auth {
