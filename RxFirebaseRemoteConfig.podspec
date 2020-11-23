@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
     s.static_framework = true
     s.dependency 'RxSwift', '~> 5'
     s.dependency 'RxCocoa', '~> 5'
-    s.dependency 'FirebaseRemoteConfig', '~> 4'
+    s.dependency 'FirebaseRemoteConfig'
 
     s.source_files = 'Sources/RemoteConfig/**/*'
 end
